@@ -14,6 +14,7 @@ public class PlayerHealth : MonoBehaviour
     public UnityEngine.UI.Image image;
     public GameObject gamePlayUI;
     public GameObject gameOverScreen;
+    public Animator _animator;
     
     public void DealDamage(float damage)
     {
@@ -31,5 +32,6 @@ public class PlayerHealth : MonoBehaviour
         GetComponent<PlayerController>().enabled = false;
         GetComponent<FireBallCast>().enabled = false;
         GetComponent<CameraRotation>().enabled = false;
+        _animator.SetTrigger("Death");
     }
 }

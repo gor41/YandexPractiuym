@@ -1628,13 +1628,9 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2100196413669428395, guid: f3af0bc1e3a191e418e927a11bf9fc18, type: 3}
-      propertyPath: Health
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2100196413669428395, guid: f3af0bc1e3a191e418e927a11bf9fc18, type: 3}
-      propertyPath: MaxHealth
-      value: 100
+    - target: {fileID: 1450016298361496744, guid: f3af0bc1e3a191e418e927a11bf9fc18, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.199997
       objectReference: {fileID: 0}
     - target: {fileID: 2197523062926678790, guid: f3af0bc1e3a191e418e927a11bf9fc18, type: 3}
       propertyPath: m_AnchoredPosition.y

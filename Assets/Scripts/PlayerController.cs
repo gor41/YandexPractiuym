@@ -11,38 +11,53 @@ public class PlayerController : MonoBehaviour
      public float jumpForce ;
      public float speed;
      private Vector3 _moveVector;
+     public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         _characterController = GetComponent<CharacterController>();
     }
-    private void Update() {
-       
-        if(Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
-        {
-        _fallVelocity = -jumpForce;
-        }
+    private void Update()
+    {
+        JumpUpdate();
+        MovementUpdate();
+    }
+ private void MovementUpdate()
+    {
         _moveVector = Vector3.zero;
-    
-        if(Input.GetKey(KeyCode.W))
+        var runDirection = 0;
+
+        if (Input.GetKey(KeyCode.W))
         {
             _moveVector += transform.forward;
+            runDirection = 1;
         }
-        if(Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             _moveVector -= transform.forward;
+            runDirection = 2;
         }
-        if(Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             _moveVector += transform.right;
+            runDirection = 3;
         }
-        if(Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             _moveVector -= transform.right;
+            runDirection = 4;
         }
-
-
+        animator.SetInteger("runDirection",runDirection);
     }
+    private void JumpUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && _characterController.isGrounded)
+        {
+            _fallVelocity = -jumpForce;
+        }
+    }
+
+   
 
     // Update is called once per frame
     void FixedUpdate()
