@@ -27,9 +27,9 @@ public class FireBall : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other) 
     {
-       DestroyFareBall();
+       DestroyFireBall();
     }
-    public void DestroyFareBall()
+    public void DestroyFireBall()
     {
         Destroy(gameObject);
     }
