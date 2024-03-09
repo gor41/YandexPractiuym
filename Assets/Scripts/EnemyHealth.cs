@@ -1,37 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyHealth : MonoBehaviour
 {
     public float value = 100;
-    public float lifeTime;
+    public Animator EnemyAnimator;
     public float damage = 10;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnCollisionEnter(Collision other) {
-    var enemyHealth = other.gameObject.GetComponent<EnemyHealth>();
-    if(value != 0)
-    {
-        DealDamage();
+        if(other.collider.CompareTag("FireBall"))
+        {
+            DealDamageEnemy(damage);
+        }
     }
-    
-    }  
-    public void DealDamage()
+    public void DealDamageEnemy(float damage)
     {
         value -= damage;
         if(value <= 0)
         {
-            Destroy(gameObject);
+            OnDeath();
+        }
+        else
+        {
+            EnemyAnimator.SetTrigger("Hit");
         }
     } 
+    public void OnDeath()
+    {
+        EnemyAnimator.SetTrigger("Death");
+        GetComponent<EnemyAI>().enabled = false;
+        GetComponent<NavMeshAgent>().enabled = false;
+        GetComponent<CapsuleCollider>().enabled = false;
+    }
 }

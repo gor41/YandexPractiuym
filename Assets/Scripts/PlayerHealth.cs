@@ -15,6 +15,10 @@ public class PlayerHealth : MonoBehaviour
     public GameObject gamePlayUI;
     public GameObject gameOverScreen;
     public Animator _animator;
+    public bool IsAlive()
+    {
+        return Health > 0;
+    }
     
     public void DealDamage(float damage)
     {
@@ -25,10 +29,18 @@ public class PlayerHealth : MonoBehaviour
         }
         image.fillAmount = Health/MaxHealth;   
     }
+    public void AddHealth(float amount)
+    {
+        Health += amount;
+        Health = Mathf.Clamp(Health,0,MaxHealth);
+        image.fillAmount = Health/MaxHealth;  
+        
+    }
     private void PlayerIsDead()
     {
         gamePlayUI.SetActive(false);
         gameOverScreen.SetActive(true);
+        gameOverScreen.GetComponent<Animator>().SetTrigger("Show");
         GetComponent<PlayerController>().enabled = false;
         GetComponent<FireBallCast>().enabled = false;
         GetComponent<CameraRotation>().enabled = false;

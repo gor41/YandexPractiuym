@@ -321,6 +321,7 @@ GameObject:
   - component: {fileID: 7031939355310788892}
   - component: {fileID: 6169426185527625781}
   - component: {fileID: 2100196413669428395}
+  - component: {fileID: 5629044006908734992}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -437,6 +438,21 @@ MonoBehaviour:
   gamePlayUI: {fileID: 521904587500794570}
   gameOverScreen: {fileID: 8122497621429166226}
   _animator: {fileID: 8035397603875917842}
+--- !u!114 &5629044006908734992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904749023671732375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506ad73f47980f74baac2868d6e7f049, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grenadePrefab: {fileID: 1023717753780879957, guid: 5e287f359423fc5478a3ed90107f5603, type: 3}
+  grenadeSourceTransform: {fileID: 704260657677412079}
+  force: 500
 --- !u!1 &1309543113670573975
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +670,37 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &3816602223488369420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704260657677412079}
+  m_Layer: 0
+  m_Name: Grenade Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704260657677412079
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816602223488369420}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4910048144870668136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4278106595952223110
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +1012,8 @@ Transform:
   m_LocalPosition: {x: 0.839, y: 1.279, z: -0.011}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 704260657677412079}
   m_Father: {fileID: 823783479057483501}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6686888481263943404
