@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,10 @@ public class EnemyHealth : MonoBehaviour
         {
             DealDamageEnemy(damage);
         }
+    }
+    public bool IsAlive()
+    {
+        return value > 0;
     }
     public void DealDamageEnemy(float damage)
     {

@@ -15,6 +15,12 @@ public class EnemyAI : MonoBehaviour
     public Animator animator;
 
     private PlayerHealth _playerHealth;
+    private EnemyHealth enemyHealth;
+
+    public bool IsAlive()
+    {
+        return enemyHealth.IsAlive();
+    }
     void Start()
     {
         Companent();
@@ -31,6 +37,7 @@ public class EnemyAI : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _playerHealth = player.GetComponent<PlayerHealth>();
+        enemyHealth = GetComponent<EnemyHealth>();
     }
     
     private void Tochka()
