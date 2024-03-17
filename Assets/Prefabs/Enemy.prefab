@@ -91,6 +91,7 @@ MonoBehaviour:
   value: 100
   EnemyAnimator: {fileID: 6236698312454472657}
   damage: 10
+  explosionPrefab: {fileID: -8776753521551943572, guid: e077403fd01aacb40bc27e2b8011e9bf, type: 3}
 --- !u!136 &4608275066091971060
 CapsuleCollider:
   m_ObjectHideFlags: 0
